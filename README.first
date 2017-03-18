@@ -1,0 +1,168 @@
+Rich Information Europarl (RIE) Corpus
+Created by Cong Duy Vu Hoang (vhoang2@student.unimelb.edu.au, duyvuleo@gmail.com) and Trevor Cohn (t.cohn@unimelb.edu.au)
+Updated: 25 Sep 2015
+-------------------------------------------------------------------------------------------------------
+
+*** About RIE
+
+Full list of MEP speakers: http://www.europarl.europa.eu/meps/en/full-list.html
+Speaker info example: http://www.europarl.europa.eu/meps/en/124990/LARS_ADAKTUSSON_home.html
+Sample plenary docs: http://www.europarl.europa.eu/sides/getDoc.do?pubRef=-//EP//TEXT+CRE+20150707+ITEM-006-12+DOC+XML+V0//EN&language=EN
+(more details: TBA)
+
+=================================================================================
+List of supported languages:
+'en' - English
+'bg' - български (Bulgarian)
+'es' - español (Spanish)
+'da' - dansk (Danish)
+'de' - Deutsch (German)
+'et' - eesti keel (Estonian)
+'el' - ελληνικά (Greek)
+'fr' - français (French)
+'hr' - hrvatski (Croatian)
+'it' - italiano (Italian)
+'lv' - latviešu valoda (Latvian)
+'lt' - lietuvių kalba (Lithuanian)
+'hu' - magyar (Hungarian)
+'mt' - Malti (Maltese)
+'nl' - Nederlands (Dutch)
+'pl' - polski (Polish)
+'pt' - português (Portuguese)
+'ro' - română (Romanian)
+'sk' - slovenčina (Slovak)
+'sl' - slovenščina (Slovenian)
+'fi' - suomi (Finnish)
+'sv' - svenska (Swedish)
+=================================================================================
+
+
+*** Creation of RIE Corpus
+
+Structure of aligned files:
+=================================================================================
+<filename> (supposedly <date>.aligned.<lang1>-<lang2>.pxml.gz)
+<dt>
+	<en>dt_en</en>
+	<it>dt_it</it>
+</dt>
+
+<loc>
+	<en>loc_en</en>
+	<it>loc_it</it>
+</loc>
+		
+<topic>
+	<en>topic_en 1</en>
+	<it>topic_it 1</it>
+</topic>
+
+<speakers> 
+	<speaker>
+		<name>
+			<en>name_en 1</en>
+			<it>name_it 1</it>
+		</name>
+		<title>
+			<en>title_en 1</en>
+			<it>title_it 1</it>
+		</title>
+		<nlang>nlang 1</nlang>
+		<text>
+			<p>
+				<s>	
+					<en>text_en 1</en>
+					<it>text_it 1</it>
+				</s>
+				...
+			</p>
+			...
+		</text>			
+	</speaker>
+	<speaker>
+		...
+	</speaker>
+	...
+</speakers>
+
+<topic>
+	...
+</topic>
+
+<speakers> 
+	...
+</speakers> 
+		
+...
+=================================================================================
+
+Structure of raw text files
+=================================================================================
+<filename> (supposedly train.raw.<notok or tok>.<srclang>-<trglang>.gz)
+SOURCE LANGUAGE LINE
+TARGET LANGUAGE LINE
+...
+=================================================================================
+
+Structure of structural text files
+=================================================================================
+<filename> (supposedly train.stu.<notok or tok>.<srclang>-<trglang>.gz)
+===
+DT <SOUCE> ||| <TARGET>
+LOC <SOUCE> ||| <TARGET>
+TOC <SOUCE> ||| <TARGET>
+SPK <SOURCE NAME> ||| <TARGET NAME> ||| <SOURCE TITLE> ||| <TARGET TITLE> ||| <NATIVE LANGUAGE>
+SENT <PARAGRAPH INDEX> <SOUCE> ||| <TARGET>
+...
+SPK <SOURCE NAME> ||| <TARGET NAME> ||| * ||| <NATIVE LANGUAGE>
+SENT <PARAGRAPH INDEX> <SOUCE> ||| <TARGET>
+...
+SPK <SOURCE NAME> ||| <TARGET NAME> ||| <SOURCE TITLE> ||| <TARGET TITLE> ||| *
+SENT <PARAGRAPH INDEX> <SOUCE> ||| <TARGET>
+...
+SPK <SOURCE NAME> ||| <TARGET NAME> ||| * ||| *
+SENT <PARAGRAPH INDEX> <SOUCE> ||| <TARGET>
+...
+TOC <SOUCE> ||| <TARGET>
+...
+===
+...
+=================================================================================
+
+
+=================================================================================
+full: 	1999/07/20 -- 2011/06/23 (100%, 12.5 years) (2011/06/23 -- 2015/07/06 -- now, no human translation period)
+
+train: 	1999/07/20 -- 2009/12/17 (86.5%, 11 years) 
+
+dev: 	2010/01/18 -- 2010/12/16 (9%, 1 year)
+
+test: 	2011/01/17 -- 2011/06/23 (4.5%, 6 months)
+=================================================================================
+
+
+Statistics
+=================================================================================
+no. of files in train: 9294
+no. of plenary sessions in train: 635
+
+no. of files in dev: 1180
+no. of plenary sessions in dev: 59
+
+no. of files in test: 600
+no. of plenary sessions in test: 30
+=================================================================================
+
+Scripts
+=================================================================================
+fetch.py (by Trevor Cohn)
+extract.py (by Cong Duy Vu Hoang)
+align.py (by Cong Duy Vu Hoang)
+create_RIE.py (by Cong Duy Vu Hoang)
+preprocess_RIE.perl (by Cong Duy Vu Hoang)
+extract_RIE.py (by Cong Duy Vu Hoang)
+run.sh (examples)
+=================================================================================
+
+---
+
